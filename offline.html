@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connection Lost — Emperorsmash</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #06070d;
+    --bg-raised: #0d0f1c;
+    --line: #22243d;
+    --cyan: #2EF0E8;
+    --magenta: #C837E0;
+    --red: #FF2E4D;
+    --text: #E9E9F4;
+    --slate: #8388a3;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html, body{ height:100%; }
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:'IBM Plex Mono',monospace;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:24px;
+    position:relative; overflow:hidden;
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(700px 400px at 20% 10%, rgba(200,55,224,0.10), transparent 60%),
+      radial-gradient(600px 400px at 90% 80%, rgba(46,240,232,0.08), transparent 60%);
+  }
+  .panel{ position:relative; z-index:2; max-width:420px; }
+
+  .bot{ width:70px; height:96px; margin:0 auto 20px; transform:rotate(7deg); opacity:0.7; animation:flicker 3.2s ease-in-out infinite; filter:grayscale(0.35) brightness(0.85); }
+  .bot svg{ width:100%; height:100%; }
+  .eye-red{ opacity:0.2; }
+  @keyframes flicker{
+    0%, 100%{ opacity:0.7; }
+    92%{ opacity:0.7; }
+    94%{ opacity:0.35; }
+    96%{ opacity:0.7; }
+    98%{ opacity:0.4; }
+  }
+
+  .status{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:0.7rem; color:var(--red); text-transform:uppercase; letter-spacing:1.5px;
+    background:rgba(255,46,77,0.08); border:1px solid rgba(255,46,77,0.35);
+    padding:5px 12px; border-radius:20px; margin-bottom:18px;
+  }
+  .status .dot{ width:7px; height:7px; border-radius:50%; background:var(--red); box-shadow:0 0 8px var(--red); }
+
+  h1{
+    font-family:'Orbitron',sans-serif; font-size:1.5rem; font-weight:700;
+    margin-bottom:12px; color:var(--text);
+  }
+  h1 span{ color:var(--cyan); text-shadow:0 0 16px rgba(46,240,232,0.4); }
+
+  p{ color:var(--slate); font-size:0.9rem; line-height:1.6; margin-bottom:26px; }
+
+  button{
+    font-family:'IBM Plex Mono',monospace; font-size:0.85rem; font-weight:600;
+    background:var(--cyan); color:var(--bg); border:none;
+    padding:12px 24px; border-radius:6px; cursor:pointer;
+    box-shadow:0 0 20px rgba(46,240,232,0.25);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  button:hover{ transform:translateY(-2px); box-shadow:0 0 30px rgba(46,240,232,0.45); }
+  button:active{ transform:translateY(0); }
+</style>
+</head>
+<body>
+  <div class="panel">
+    <div class="bot">
+      <svg viewBox="0 0 100 130" fill="none">
+        <defs>
+          <radialGradient id="skinGrad" cx="35%" cy="30%" r="75%">
+            <stop offset="0%" stop-color="#8a6248"/>
+            <stop offset="100%" stop-color="#2b1a12"/>
+          </radialGradient>
+          <linearGradient id="jacketGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#20222f"/>
+            <stop offset="100%" stop-color="#050509"/>
+          </linearGradient>
+        </defs>
+        <g>
+          <rect x="38" y="93" width="8" height="26" rx="3" fill="url(#jacketGrad)"/>
+          <rect x="34" y="116" width="16" height="7" rx="3" fill="var(--magenta)"/>
+          <rect x="54" y="93" width="8" height="26" rx="3" fill="url(#jacketGrad)"/>
+          <rect x="50" y="116" width="16" height="7" rx="3" fill="var(--cyan)"/>
+          <rect x="19" y="60" width="9" height="28" rx="4" fill="url(#jacketGrad)"/>
+          <circle cx="23.5" cy="90" r="5" fill="#2b1a12"/>
+          <rect x="72" y="60" width="9" height="28" rx="4" fill="url(#jacketGrad)"/>
+          <circle cx="76.5" cy="90" r="5" fill="#2b1a12"/>
+          <path d="M32 57 Q50 47 68 57 L70 95 Q50 103 30 95 Z" fill="url(#jacketGrad)" stroke="var(--magenta)" stroke-width="1.5"/>
+          <path d="M42 59 Q50 67 58 59" stroke="#d4af37" stroke-width="1.2" fill="none"/>
+          <circle cx="50" cy="69" r="2.2" fill="#d4af37"/>
+          <rect x="44" y="45" width="12" height="12" fill="url(#skinGrad)"/>
+          <g fill="#0a0a0a">
+            <rect x="30" y="6" width="7" height="26" rx="3.5" transform="rotate(-18 33 19)"/>
+            <rect x="36" y="2" width="7" height="30" rx="3.5" transform="rotate(-8 39 17)"/>
+            <rect x="43" y="0" width="7" height="32" rx="3.5"/>
+            <rect x="50" y="0" width="7" height="32" rx="3.5"/>
+            <rect x="57" y="2" width="7" height="30" rx="3.5" transform="rotate(8 60 17)"/>
+            <rect x="63" y="6" width="7" height="26" rx="3.5" transform="rotate(18 66 19)"/>
+          </g>
+          <ellipse cx="50" cy="30" rx="18" ry="17" fill="url(#skinGrad)"/>
+          <path d="M50 15 L64 20 L62 42 L50 45 Z" fill="#111118" stroke="var(--cyan)" stroke-width="1"/>
+          <circle class="eye-red" cx="57" cy="30" r="3.4" fill="var(--red)"/>
+          <line x1="52" y1="24" x2="60" y2="24" stroke="var(--magenta)" stroke-width="0.8"/>
+          <circle cx="43" cy="29" r="2" fill="#0a0a0a"/>
+          <path d="M45 40 Q50 46 55 40" stroke="#0a0a0a" stroke-width="3" fill="none" stroke-linecap="round"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="status"><span class="dot"></span>SIGNAL LOST</div>
+    <h1>Looks like <span>you're offline</span></h1>
+    <p>Emperorsmash's site couldn't load. Check your connection and try again — the bot will be right here waiting.</p>
+    <button onclick="window.location.reload()">Retry Connection</button>
+  </div>
+</body>
+</html>
